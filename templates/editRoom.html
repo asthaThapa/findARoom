@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% block main %}
+<main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="title-single-box">
+                        <h1 class="title-single">Got a Room to rent?</h1>
+                        <span class="color-text-a">Got a spare room to rent? Fill in our quick and easy form on our
+                            website to post your listing in no time!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Contact Single ======= -->
+    <section class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        {% if errorMessage %}
+                        <h3 style="color:red; text-align: center; font-size: 22px;">{{errorMessage}}</h3>
+                        {% endif %}
+                        {% if successMessage %}
+                        <h3 style="color:green; text-align: center; font-size: 22px;">{{successMessage}}</h3>
+                        {% endif %}
+                        <div class="col-md-12">
+                            <form action="updateRoom" method="post" role="form" class="php-email-form">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="neogitable">Post Title</label>
+                                            <input type="text" name="post_title" value="{{roomDetail.post_title}}"
+                                                class="form-control form-control-a"
+                                                placeholder="Enter the title for your post" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="description">Describe the Room</label>
+                                            <textarea name="room_description"
+                                                class="form-control" cols="45" rows="8"
+                                                placeholder="Describe about the room" required="">{{roomDetail.room_description}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="bedroom">Bed Room</label>
+                                            <input type="number" name="bedroom" value="{{roomDetail.bed_number}}"
+                                                class="form-control form-control-a" placeholder="Number of bedrooms"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="neogitable">Bathroom</label>
+                                            <input type="number" name="bathroom" value="{{roomDetail.bath_number}}"
+                                                class="form-control form-control-a" placeholder="Number of bathrooms"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="price">Price (In USD)</label>
+                                            <input type="number" name="price" class="form-control form-control-a"
+                                                value="{{roomDetail.rent_amount}}" placeholder="Price of the room"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="neogitable">Negotiable</label>
+                                            <select class="form-control form-select form-control-a" name="neogitable">
+                                                {%if roomDetail.neogitable == True%}
+                                                <option selected>Yes</option>
+                                                <option>No</option>
+                                                {% else %}
+                                                <option >Yes</option>
+                                                <option selected >No</option>
+                                                {% endif %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="price">Security Deposit (In USD)</label>
+                                            <input type="number" name="securityDeposit" value="{{roomDetail.security_deposit}}"
+                                                class="form-control form-control-a" placeholder="Security Deposit"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="availability">Availability</label>
+                                            <input type="date" name="availability" class="form-control form-control-a"  value="{{roomDetail.available_date}}"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="location">Location</label>
+                                            <input type="text" name="location" class="form-control form-control-a" value="{{roomDetail.location}}"
+                                                placeholder="Enter the location" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="area">Area</label>
+                                            <textarea name="area_description" class="form-control" cols="45" rows="8" 
+                                                placeholder="Describe the area/neighbourhood" required="">{{roomDetail.area_description}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="pets">Pets</label>
+                                            <select class="form-control form-select form-control-a" name="pets">
+                                                {%if roomDetail.pets_allowed == True%}
+                                                <option selected>Yes</option>
+                                                <option>No</option>
+                                                {% else %}
+                                                <option >Yes</option>
+                                                <option selected >No</option>
+                                                {% endif %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="additional">Additional Facilities</label>
+                                            <input type="text" name="additional" class="form-control form-control-a" value="{{roomDetail.additional_things}}"
+                                                placeholder="Please seperate the facilities by comma" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <input type="text" style="display:none" value="{{roomDetail.id}}" name="post_id"/>
+
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-a">Update Post</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Contact Single-->
+
+</main><!-- End #main -->
+
+{% endblock %}

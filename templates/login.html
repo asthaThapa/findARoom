@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block main %}
+<main id="main" style="margin-bottom: 20px;">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8 position-relative">
+                    <div class="title-single-box">
+                        <h1 class="title-single">Log in to your account</h1>
+                        <span class="color-text-a">If you do not have an account yet. Sign up <a class="signup"
+                                href="{{ url_for('signup') }}">here</a></span>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{{ url_for('init') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Login
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Blog Single ======= -->
+    <section class="news-single nav-arrow-b" style="height: 600px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-1 col-lg-6 offset-lg-1" style="margin: auto;">
+                    {% if errorMessage %}
+                    <h3 style="color:red; text-align: center; font-size: 22px;">{{errorMessage}}</h3>
+                    {% endif %}
+                    {% if successMessage %}
+                    <h3 style="color:green; text-align: center; font-size: 22px;">{{successMessage}}</h3>
+                    {% endif %}
+                    <div class="form-comments">
+                        <form class="form-a" action="login" method="POST">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="username">Enter email</label>
+                                        <input type="text" class="form-control form-control-lg form-control-a"
+                                            id="username" name="username" placeholder="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="textMessage">Enter password</label>
+                                        <input class="form-control form-control-lg form-control-a"
+                                        type="password"  name="password" placeholder="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 submit-button">
+                                <button type="submit" class="btn btn-a">Login</button>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section><!-- End Blog Single-->
+
+</main><!-- End #main -->
+{% endblock %}

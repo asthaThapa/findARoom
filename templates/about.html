@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block main %}
+<!-- ======= Intro Single ======= -->
+<section class="intro-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                    <h1 class="title-single">Your search <span class="color-d">Ends</span> here...</h1>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ url_for('init') }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            About
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><!-- End Intro Single-->
+
+<!-- ======= About Section ======= -->
+<section class="section-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 position-relative">
+                <div class="row">
+                    <div class="col-md-6 col-lg-5">
+                        <img src="{{url_for('static', filename='/images/perfectRoom.jpg')}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2  d-none d-lg-block position-relative">
+                        <div class="title-vertical d-flex justify-content-start">
+                            <span>Put you rooms for <span class="color-d">Rent</span> or </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 section-md-t3">
+                        <div class="title-box-d">
+                            <h3 class="title-d">Find a
+                                <span class="color-d">Room</span> to
+                                <br> stay.
+                            </h3>
+                        </div>
+                        <p class="color-text-a">
+                            We understand that finding the right room can be a daunting task, which is why we've
+                            simplified the
+                            process by providing a user-friendly interface that allows you to search and filter rooms
+                            based on
+                            your specific requirements. Whether you're looking for a cozy single room or a spacious
+                            double room,
+                            our platform has got you covered.
+
+                            In addition to our extensive listings, we also provide an opportunity for users to post
+                            advertisements
+                            for their rooms. If you have a room that you're looking to rent out, simply create a listing
+                            on our
+                            site and connect with potential renters who are looking for a place like yours.
+                        </p>
+                        <p class="color-text-a">
+                            Our platform is designed to ensure that you have a seamless and stress-free experience when
+                            looking
+                            for a room. With our easy-to-use search features, detailed listings, and user-friendly
+                            interface, you
+                            can find the perfect room without any hassle.
+
+                            So what are you waiting for? Sign up today and start searching for your ideal room!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block main %}
+<main id="main">
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8 position-relative">
+                    <div class="title-single-box">
+                        <h1 class="title-single">Create your account</h1>
+                        <span class="color-text-a">Fill in the following and click sign up!</span>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{{ url_for('init') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Signup
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Blog Single ======= -->
+    <section class="news-single nav-arrow-b" style="height: 600px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                    <div class="form-comments">
+                        <form class="form-a" action="createUser" method="POST">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="first_name">Enter First Name</label>
+                                        <input type="text" class="form-control form-control-lg form-control-a" name="first_name"
+                                            id="first_name" placeholder="first Name *" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="last_name">Enter Last Name</label>
+                                        <input type="text" class="form-control form-control-lg form-control-a"
+                                            id="last_name" name="last_name" placeholder="Last Name *" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="email">Enter Email</label>
+                                        <input type="email" class="form-control form-control-lg form-control-a"
+                                            id="email" name="email" placeholder="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="about">Tell us about yourself</label>
+                                        <textarea name="about" class="form-control" cols="45" rows="8" placeholder="Describe about yourself in few sentences" required=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="first_name">Enter a password</label>
+                                        <input type="password" class="form-control form-control-lg form-control-a" name="password"
+                                            id="password" placeholder="password *" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="last_name">Re-enter your password</label>
+                                        <input type="password" class="form-control form-control-lg form-control-a"
+                                            id="re-password" name="re-password" placeholder="Re-enter your password" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 submit-button">
+                                <button type="submit" class="btn btn-a">Sign me up!</button>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section><!-- End Blog Single-->
+
+</main><!-- End #main -->
+{% endblock %}
